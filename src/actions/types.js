@@ -1,0 +1,8 @@
+export const FETCH_STUDENTS = "FETCH_STUDENTS";
+export const ADD_STUDENT = "ADD_STUDENT";
+export const UPDATE_STUDENT = "UPDATE_STUDENT";
+export const DELETE_STUDENT = "DELETE_STUDENT";
+export const ACTIVATE_TAB = "ACTIVATE_TAB";
+export const SET_STAGE = "SET_STAGE";
+export const SET_DIVISION = "SET_DIVISION";
+export const FIND_STUDENT = "FIND_STUDENT";

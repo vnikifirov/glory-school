@@ -1,17 +1,41 @@
 {
-  "name": "glory-school2",
+  "name": "glory-school",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
+    "body-parser": "^1.18.3",
+    "photonkit": "^0.1.2",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
-    "react-scripts": "2.1.1"
+    "react-redux": "^5.1.1",
+    "react-scripts": "2.1.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "sqlite3": "^4.0.4"
   },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "cross-env": "^5.2.0",
+    "electron": "^3.0.8",
+    "electron-rebuild": "^1.8.2",
+    "foreman": "^3.0.1",
+    "wait-on": "^3.2.0"
+  },
+  "main": "main.js",
+  "homepage": "./",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env NODE_ENV=production concurrently 'npm run build && npm run electron'",
+    "dev": "cross-env NODE_ENV=development concurrently 'npm run react-start' 'wait-on http://localhost:3000 && npm run electron-dev'",
     "build": "react-scripts build",
+    "rebuild": "electron-rebuild -p -w sqlite3",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "react-start": "BROWSER=none react-scripts start",
+    "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
+    "server-start": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
