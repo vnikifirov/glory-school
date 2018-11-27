@@ -29,7 +29,11 @@ export default {
     ENGLISH: "English"
   },
   "ar-DZ": {
-    REGISTER_NEW_STUDENT: "تسجيل تلميذ جديد",
+    OPTIONS: "الخيارات",
+    REGISTER_NEW_STUDENT: "إضافة تلميذ",
+    STUDENTS_LIST: "قائمة التلاميذ",
+    SETTINGS: "الإعدادات",
+    ABOUT: "حول",
     REGISTER: "تسجيل",
     FIRST_NAME: "إسم التلميذ",
     LAST_NAME: "لقب التلميذ",

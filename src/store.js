@@ -64,7 +64,9 @@ const initialState = {
     },
     COLLEGE: [["FRENCH", "French"], ["ENGLISH", "English"]]
   },
-  tab: {}
+  tab: {
+    activeTab: 0
+  }
 };
 
 const store = createStore(

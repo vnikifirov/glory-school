@@ -1,57 +1,59 @@
 import React, { Component } from "react";
-import { PersonAdd, List, Settings, Info } from "@material-ui/icons";
-
 import { connect } from "react-redux";
-
 import { activateTab } from "../actions/tabActions";
 
 class Sidebar extends Component {
   constructor(props) {
     super(props);
+    this.i18n = props.i18n;
     this.state = {
       paneList: [
-        { title: "إضافة تلميذ", icon: PersonAdd },
-        { title: "قائمة التلاميذ", icon: List },
-        { title: "الإعدادات", icon: Settings },
-        { title: "حول", icon: Info }
-      ],
-      activeTab: 0
+        {
+          title: this.i18n.translate(
+            "REGISTER_NEW_STUDENT",
+            "Register new Student"
+          ),
+          icon: "icon icon-user-add"
+        },
+        {
+          title: this.i18n.translate("STUDENTS_LIST", "Students list"),
+          icon: "icon icon-list"
+        },
+        {
+          title: this.i18n.translate("SETTINGS", "Settings"),
+          icon: "icon icon-cog"
+        },
+        {
+          title: this.i18n.translate("ABOUT", "About"),
+          icon: "icon icon-info"
+        }
+      ]
     };
   }
 
   activateTab = activeTab => {
     this.props.activateTab(activeTab);
-    this.setState({ activeTab: activeTab });
   };
 
   render() {
-    const iconToRight = {
-      float: "right",
-      marginLeft: "7px",
-      marginRight: "15px"
-    };
-
     const iconStyles = {
       marginRight: "15px",
       marginLeft: "7px",
-      marginTop: "3px",
-      fontSize: "18px",
-      display: "inline",
-      width: "19px",
-      height: "18px",
-      float: "right",
-      opacity: "0.75"
+      float: "right"
     };
 
-    const { paneList, activeTab } = this.state;
+    const { paneList } = this.state;
+    const { activeTab } = this.props;
     return (
       <div className="pane-sm sidebar">
         <nav className="nav-group">
-          <h5 className="nav-group-title">الخيارات</h5>
+          <h5 className="nav-group-title">
+            {this.i18n.translate("OPTIONS", "Options")}
+          </h5>
           {paneList.map((item, index) =>
             activeTab === index ? (
               <a className="nav-group-item active" key={index}>
-                <item.icon style={iconStyles} />
+                <span className={item.icon} style={iconStyles} />
                 {item.title}
               </a>
             ) : (
@@ -59,7 +61,7 @@ class Sidebar extends Component {
                 className="nav-group-item"
                 onClick={this.activateTab.bind(this, index)}
                 key={index}>
-                <item.icon style={iconStyles} />
+                <span className={item.icon} style={iconStyles} />
                 {item.title}
               </a>
             )
