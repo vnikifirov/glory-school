@@ -5,7 +5,7 @@ This is a basic school management application using Electron and React.
 ## Installation
 
 ```shell
-$ git clone git@github.com:matrixersp/glory-school.git
+$ git clone https://github.com/matrixersp/glory-school
 $ cd glory-school/
 $ npm install
 ```
